@@ -7,7 +7,7 @@
     Shell.FlyoutBehavior="Disabled">
 
     <ShellContent
-        Title="Hello, World!"
+        Title="Grid Spacing not Pixel-Perfect"
         ContentTemplate="{DataTemplate local:MainPage}"
         Route="MainPage" />
 

@@ -4,43 +4,59 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <ScrollView>
-        <VerticalStackLayout Padding="30" Spacing="25">
+    <Grid
+        Padding="1"
+        Background="Red"
+        ColumnSpacing="1"
+        RowSpacing="1">
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition />
+            <ColumnDefinition />
+            <ColumnDefinition />
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition />
+            <RowDefinition />
+            <RowDefinition />
+        </Grid.RowDefinitions>
 
-            <Label
-                FontSize="32"
-                HorizontalOptions="Center"
-                SemanticProperties.HeadingLevel="Level1"
-                Text="Hello, World!" />
+        <BoxView
+            Grid.Row="0"
+            Grid.Column="0"
+            Color="Yellow" />
+        <BoxView
+            Grid.Row="0"
+            Grid.Column="1"
+            Color="Yellow" />
+        <BoxView
+            Grid.Row="0"
+            Grid.Column="2"
+            Color="Yellow" />
 
-            <Label
-                FontSize="18"
-                HorizontalOptions="Center"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                SemanticProperties.HeadingLevel="Level1"
-                Text="Welcome to .NET Multi-platform App UI" />
+        <BoxView
+            Grid.Row="1"
+            Grid.Column="0"
+            Color="Yellow" />
+        <BoxView
+            Grid.Row="1"
+            Grid.Column="1"
+            Color="Yellow" />
+        <BoxView
+            Grid.Row="1"
+            Grid.Column="2"
+            Color="Yellow" />
 
-            <Label
-                x:Name="CounterLabel"
-                FontAttributes="Bold"
-                FontSize="18"
-                HorizontalOptions="Center"
-                Text="Current count: 0" />
-
-            <Button
-                Clicked="OnCounterClicked"
-                FontAttributes="Bold"
-                HorizontalOptions="Center"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Text="Click me" />
-
-            <Image
-                HeightRequest="310"
-                HorizontalOptions="Center"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                Source="dotnet_bot.png"
-                WidthRequest="250" />
-
-        </VerticalStackLayout>
-    </ScrollView>
+        <BoxView
+            Grid.Row="2"
+            Grid.Column="0"
+            Color="Yellow" />
+        <BoxView
+            Grid.Row="2"
+            Grid.Column="1"
+            Color="Yellow" />
+        <BoxView
+            Grid.Row="2"
+            Grid.Column="2"
+            Color="Yellow" />
+    </Grid>
 </ContentPage>
