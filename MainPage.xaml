@@ -6,7 +6,7 @@
 
     <Grid
         Padding="1"
-        Background="Red"
+        Background="Blue"
         ColumnSpacing="1"
         RowSpacing="1">
         <Grid.ColumnDefinitions>
