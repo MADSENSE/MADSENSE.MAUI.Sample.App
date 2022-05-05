@@ -4,43 +4,51 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <ScrollView>
-        <VerticalStackLayout Padding="30" Spacing="25">
+    <ContentPage.Resources>
+        <ResourceDictionary>
+            <x:Int32 x:Key="ZeroNumber">0</x:Int32>
+            <x:Int32 x:Key="MinusOneNumber">-1</x:Int32>
+            <x:Int32 x:Key="OneNumber">1</x:Int32>
+        </ResourceDictionary>
+    </ContentPage.Resources>
 
-            <Label
-                FontSize="32"
-                HorizontalOptions="Center"
-                SemanticProperties.HeadingLevel="Level1"
-                Text="Hello, World!" />
+    <StackLayout>
+        <Label FontSize="Medium" Text="Gray == null;&#x0a;Yellow == 0;&#x0a;Red == -1;&#x0a;Green == 1;" />
 
-            <Label
-                FontSize="18"
-                HorizontalOptions="Center"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                SemanticProperties.HeadingLevel="Level1"
-                Text="Welcome to .NET Multi-platform App UI" />
+        <Label
+            FontSize="Large"
+            HorizontalTextAlignment="Center"
+            Text="{Binding CurrentNumber, TargetNullValue='value is null and background should be Gray'}">
+            <Label.Triggers>
+                <DataTrigger
+                    Binding="{Binding CurrentNumber}"
+                    TargetType="Label"
+                    Value="{x:Null}">
+                    <Setter Property="BackgroundColor" Value="Gray" />
+                </DataTrigger>
+                <DataTrigger
+                    Binding="{Binding CurrentNumber}"
+                    TargetType="Label"
+                    Value="{StaticResource ZeroNumber}">
+                    <Setter Property="BackgroundColor" Value="Yellow" />
+                </DataTrigger>
+                <DataTrigger
+                    Binding="{Binding CurrentNumber}"
+                    TargetType="Label"
+                    Value="{StaticResource MinusOneNumber}">
+                    <Setter Property="BackgroundColor" Value="Red" />
+                </DataTrigger>
+                <DataTrigger
+                    Binding="{Binding CurrentNumber}"
+                    TargetType="Label"
+                    Value="{StaticResource OneNumber}">
+                    <Setter Property="BackgroundColor" Value="Green" />
+                </DataTrigger>
+            </Label.Triggers>
+        </Label>
 
-            <Label
-                x:Name="CounterLabel"
-                FontAttributes="Bold"
-                FontSize="18"
-                HorizontalOptions="Center"
-                Text="Current count: 0" />
-
-            <Button
-                Clicked="OnCounterClicked"
-                FontAttributes="Bold"
-                HorizontalOptions="Center"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Text="Click me" />
-
-            <Image
-                HeightRequest="310"
-                HorizontalOptions="Center"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                Source="dotnet_bot.png"
-                WidthRequest="250" />
-
-        </VerticalStackLayout>
-    </ScrollView>
+        <Button Command="{Binding IncrementCommand}" Text="Increment" />
+        <Button Command="{Binding DecrementCommand}" Text="Decrement" />
+        <Button Command="{Binding ResetCommand}" Text="Reset" />
+    </StackLayout>
 </ContentPage>
