@@ -4,43 +4,43 @@
     xmlns="http://schemas.microsoft.com/dotnet/2021/maui"
     xmlns:x="http://schemas.microsoft.com/winfx/2009/xaml">
 
-    <ScrollView>
-        <VerticalStackLayout Padding="30" Spacing="25">
+    <StackLayout
+        Padding="10"
+        RadioButtonGroup.GroupName="SelectedValueGroup"
+        RadioButtonGroup.SelectedValue="{Binding SelectedValue, Mode=TwoWay}">
 
-            <Label
-                FontSize="32"
-                HorizontalOptions="Center"
-                SemanticProperties.HeadingLevel="Level1"
-                Text="Hello, World!" />
+        <RadioButton Content="Binding to Value1" Value="Value1" />
+        <RadioButton Content="Binding to Value2" Value="Value2" />
+        <RadioButton Content="Binding to Value3" Value="Value3" />
+        <RadioButton Content="Binding to Value4" Value="Value4" />
 
-            <Label
-                FontSize="18"
-                HorizontalOptions="Center"
-                SemanticProperties.Description="Welcome to dot net Multi platform App U I"
-                SemanticProperties.HeadingLevel="Level1"
-                Text="Welcome to .NET Multi-platform App UI" />
-
-            <Label
-                x:Name="CounterLabel"
-                FontAttributes="Bold"
-                FontSize="18"
-                HorizontalOptions="Center"
-                Text="Current count: 0" />
-
-            <Button
-                Clicked="OnCounterClicked"
-                FontAttributes="Bold"
-                HorizontalOptions="Center"
-                SemanticProperties.Hint="Counts the number of times you click"
-                Text="Click me" />
-
-            <Image
-                HeightRequest="310"
-                HorizontalOptions="Center"
-                SemanticProperties.Description="Cute dot net bot waving hi to you!"
-                Source="dotnet_bot.png"
-                WidthRequest="250" />
-
-        </VerticalStackLayout>
-    </ScrollView>
+        <Label FontSize="Large" Text="Please select a Value above">
+            <Label.Triggers>
+                <DataTrigger
+                    Binding="{Binding SelectedValue}"
+                    TargetType="Label"
+                    Value="Value1">
+                    <Setter Property="Text" Value="{Binding Value1}" />
+                </DataTrigger>
+                <DataTrigger
+                    Binding="{Binding SelectedValue}"
+                    TargetType="Label"
+                    Value="Value2">
+                    <Setter Property="Text" Value="{Binding Value2}" />
+                </DataTrigger>
+                <DataTrigger
+                    Binding="{Binding SelectedValue}"
+                    TargetType="Label"
+                    Value="Value3">
+                    <Setter Property="Text" Value="{Binding Value3}" />
+                </DataTrigger>
+                <DataTrigger
+                    Binding="{Binding SelectedValue}"
+                    TargetType="Label"
+                    Value="Value4">
+                    <Setter Property="Text" Value="{Binding Value4}" />
+                </DataTrigger>
+            </Label.Triggers>
+        </Label>
+    </StackLayout>
 </ContentPage>
